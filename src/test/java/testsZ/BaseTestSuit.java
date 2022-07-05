@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.ProfilesIni;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTestSuit {
-    protected WebDriver driver;
+    public WebDriver driver;
 
     @Before
     public void openDriver(){
