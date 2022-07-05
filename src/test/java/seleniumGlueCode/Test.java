@@ -3,6 +3,7 @@ package seleniumGlueCode;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -105,7 +106,7 @@ public class Test {
         WebElement clFilter = driver.findElement(
                 By.xpath("/html/body/div/div/div/div[2]/div[4]/div[2]/div[1]/div/div[1]/ul/li[3]/input"));
         clFilter.click();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
     }
 
     @When("^selects five items$")
@@ -127,30 +128,41 @@ public class Test {
         WebElement xButton = driver.findElement(
                 By.xpath("/html/body/div/div/div/div[3]/div[1]"));
         xButton.click();
-        Thread.sleep(1000);
+        Thread.sleep(3000);
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scroll(0,800)");
-        Thread.sleep(1000);
+        //js.executeScript("window.scroll(0,400)");
+        //Thread.sleep(2000);
 
         WebElement add2 = driver.findElement(
                 By.xpath("/html/body/div/div/div/div[2]/div[4]/div[3]/section/div[2]/div[2]/div/div[1]/div/div/div/a"));
         add2.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         WebElement oneMore2 = driver.findElement(
                 By.xpath("/html/body/div/div/div/div[2]/div[4]/div[3]/div/div[2]/div[4]/div/input"));
         oneMore2.clear();
         oneMore2.sendKeys("3");
         Thread.sleep(1000);
+
         WebElement addButton2 = driver.findElement(
                 By.xpath("/html/body/div/div/div/div[2]/div[4]/div[3]/div/div[2]/div[4]/button"));
         addButton2.click();
 
-        WebElement xButton2 = driver.findElement(
-                By.xpath("/html/body/div/div/div/div[3]/div[1]"));
-        xButton2.click();
-        Thread.sleep(600);
+        WebElement endPurch = driver.findElement(
+                By.xpath("/html/body/div/div/div/div[3]/div[2]/div[3]/button[1]"));
+        endPurch.click();
+        Thread.sleep(3000);
+
+        WebElement endPop = driver.findElement(
+                By.xpath("/html/body/div/div/div/div[1]/div/div[2]/button"));
+        endPop.click();
+        Thread.sleep(5000);
+
+        WebElement resume = driver.findElement(
+                By.xpath("/html/body/div/div/div/div[3]/div/section[2]/article/h2"));
+        Assert.assertTrue(resume.getText().contains("Resumen del pedido"));
+        // Verify content of procces.
 
         js.executeScript("window.scroll(0,800)");
 
